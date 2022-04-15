@@ -1,5 +1,48 @@
 module.exports = {
   siteMetadata: {
+    siteUrl: `https://www.example.com`,
+  },
+  plugins: [
+    {
+      resolve: `gatsby-plugin-sitemap`,
+      options: {
+        exclude: [`/page/*`, `/tag/*`],
+      },
+    },
+  ],
+  siteMetadata: {
+    siteUrl: `https://www.example.com`,
+  },
+  plugins: [`gatsby-plugin-robots-txt`],
+  plugins: [
+    {
+      resolve: "gatsby-remark-external-links",
+      options: {
+        target: "_blank",
+        rel: "noopener noreferrer",
+      },
+    },
+  ],
+  plugins: [
+    {
+      resolve: `gatsby-transformer-remark`,
+      options: {
+        plugins: [`gatsby-remark-line-breaks`],
+      },
+    },
+  ],
+  plugins: [
+    {
+      resolve: "gatsby-plugin-google-gtag",
+      options: {
+        trackingIds: ["UA-XXXXXXXX-X"],
+        pluginConfig: {
+          head: true,
+        },
+      },
+    },
+  ],
+  siteMetadata: {
     title: `Gatsby Starter Blog`,
     author: {
       name: `Kyle Mathews`,
@@ -13,6 +56,15 @@ module.exports = {
   },
   plugins: [
     `gatsby-plugin-image`,
+    // {
+    //   resolve: "gatsby-plugin-sass",
+    //   options: {
+    //     postCssPlugins: [...postCssPlugins],
+    //     cssLoaderOptions: {
+    //       camelCase: false,
+    //     },
+    //   },
+    // },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
